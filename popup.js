@@ -33,12 +33,10 @@ function removeHighlights() {
 }
 
 function colorChanged(color) {
-    backgroundPage.trackEvent('color-change-source', 'popup');
     backgroundPage.changeColor(color);
 }
 
 function toggleHighlighterCursor() {
-    backgroundPage.trackEvent('toggle-cursor-source', 'popup');
     backgroundPage.toggleHighlighterCursor();
     window.close();
 }
@@ -60,8 +58,6 @@ function copyHighlights() {
     document.execCommand("copy");
     window.getSelection().empty();
     
-    backgroundPage.trackEvent('highlight-action', 'copy-all');
-
     // Let the user know the copy went through
     var checkmarkEl = document.createElement('span');
     checkmarkEl.style.color = '#00ff00';
@@ -139,8 +135,6 @@ chrome.commands.getAll((commands) => {
 });
 
 // Register (in analytics) that the popup was opened
-backgroundPage.trackEvent('popup', 'opened');
-
 closeConfirmation(); // Trigger initially to hide the 'remove confirmation' section
 
 function clearSelected() {

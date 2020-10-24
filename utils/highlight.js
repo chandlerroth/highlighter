@@ -63,7 +63,7 @@ function highlight(selString, container, selection, color, highlightIndex) {
     // Step 1 + 2:
     recursiveWrapper(container);
 
-    color = color ? color : "yellow";
+    color = "#3d931c";
     const replacements = getReplacements(color, highlightIndex);
 
     // Step 3:
